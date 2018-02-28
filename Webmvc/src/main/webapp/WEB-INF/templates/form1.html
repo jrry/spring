@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+    <title>Title</title>
+</head>
+<body>
+Przykładowe wyświetlenie parametru t = <span th:text="${templateParam}">Default</span>
+<form action="#" th:action="@{/template/adduser}" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" th:field="*{name}"/>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
+        </tr>
+        <tr>
+            <td>Surname</td>
+            <td><input type="text" th:field="*{surname}"/>
+            <td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"/>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="text" th:field="*{age}"/>
+            <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}"/>
+        </tr>
+    </table>
+    <input type="submit" value="Dodaj"/>
+</form>
+</body>
+</html>
